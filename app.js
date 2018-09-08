@@ -2,4 +2,4 @@ require('babel-register')({
     presets: [ 'env' ]
 })
 
-module.exports = require('./index.dev.js')
+module.exports = require('./src/server/index.dev.js')

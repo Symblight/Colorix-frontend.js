@@ -4,9 +4,12 @@ import morgan from 'morgan';
 import http from 'http';
 import path from 'path';
 
-import config from './server/config';
+import config from './config';
+import userAPI from './routers/user';
+import paletteAPI from './routers/palette';
 
 const app = express();
+
 app.disable('x-powered-by');
 
 app.use(bodyParser.json());
@@ -16,6 +19,11 @@ app.use(morgan('dev'));
 app.get('/', (req, res) => {
     res.send('Hello');
 });
+
+
+// ==== API ====
+app.use('/api/user/', userAPI);
+app.use('/api/palette/', paletteAPI);
 
 const server = http.createServer(app).listen(config.port, (err) => {
     if (err) {
