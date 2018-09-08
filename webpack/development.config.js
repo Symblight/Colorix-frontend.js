@@ -1,4 +1,8 @@
 const { resolve } = require('path');
+const {
+  LoaderOptionsPlugin,
+  HotModuleReplacementPlugin,
+} = require('webpack')
 const merge = require('webpack-merge');
 
 const { config, DIST } = require('./common');
@@ -18,24 +22,18 @@ module.exports = merge(config, {
     },
   
     plugins: [
-     // new HotModuleReplacementPlugin(),
+      new LoaderOptionsPlugin({
+        debug: true,
+        minimize: false,
+      }),
+      new HotModuleReplacementPlugin()
     ],
   
     devServer: {
       contentBase: resolve(__dirname, '..', 'public'),
-      // hot: true,
-      noInfo: true,
+      hot: true,
+      host: 'localhost',
       historyApiFallback: true,
-      inline: false,
-      stats: {
-        colors: true,
-        chunks: false,
-        children: false,
-      },
-      watchOptions: {
-        aggregateTimeout: 300,
-        poll: true,
-      },
       port: 3001,
       host: 'localhost',
     },

@@ -1,4 +1,7 @@
 const { resolve } = require('path');
+const {
+    EnvironmentPlugin,
+} = require('webpack');
 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
@@ -47,14 +50,26 @@ const config = {
                 loader: "html-loader"
               }
             ]
+           },
+           {
+             test: /\.css$/,
+             use: ["style-loader", "css-loader"]
+           },
+           {
+             test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+             loader: "url-loader?limit=100000"
            }
         ]
     },
 
     plugins: [
         new HtmlWebPackPlugin({
+            title: 'Colorix',
             template: "index.html"
-          })
+          }),
+          new EnvironmentPlugin({
+            NODE_ENV,
+          }),
     ],
 
     stats: {
