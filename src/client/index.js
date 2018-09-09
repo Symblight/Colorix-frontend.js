@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Helmet from 'react-helmet'
 import { AppContainer } from 'react-hot-loader';
-import { injectGlobal } from 'styled-components'
+import { injectGlobal } from 'styled-components';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import App from './components/App';
+import Routers from './routers';
 
 injectGlobal`
   *{
@@ -18,16 +19,18 @@ const rootElement = document.getElementById('root');
 const render = Component =>
   ReactDOM.render(
     <AppContainer>
-      <React.Fragment>
-          <Helmet
-            titleTemplate="%s • Colorix"
-          />
-        <Component />
-      </React.Fragment>
+      <Router>
+        <React.Fragment>
+            <Helmet
+              titleTemplate="%s • Colorix"
+            />
+          <Routers />
+        </React.Fragment>
+      </Router>
     </AppContainer>,
     rootElement
 );
 
-render(App);
+render(Routers);
 
-if (module.hot) module.hot.accept('./components/App', () => render(App));
+if (module.hot) module.hot.accept('./routers', () => render(Routers));
