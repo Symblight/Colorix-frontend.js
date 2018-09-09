@@ -5,11 +5,13 @@
   "description": "palletes",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "build": "webpack",
+    "server": "nodemon src/server",
+    "client": "webpack-dev-server --hot --config=webpack.config.js",
     "dev": "set NODE_ENV=development",
     "prod": "set NODE_ENV=production",
-    "start:dev": "npm dev | npm start",
-    "start:prod": "npm prod | npm start",
+    "client:dev": "npm run dev | npm run client",
+    "start:prod": "npm prod",
     "clean": "rmdir /Q /S dist"
   },
   "author": "alexey",
@@ -20,18 +22,31 @@
     "morgan": "^1.9.0",
     "pg": "^7.4.3",
     "react": "^16.4.2",
+    "react-dom": "^16.5.0",
+    "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "styled-components": "^3.4.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-3": "^6.24.1",
-    "babel-register": "^6.26.0",
+    "babel-loader": "^8.0.0-beta.6",
     "chai": "^4.1.2",
     "chai-http": "^4.2.0",
+    "css-loader": "^1.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
     "mocha": "^5.2.0",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "react-hot-loader": "^4.3.6",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8",
+    "webpack-merge": "^4.1.4"
   }
 }
