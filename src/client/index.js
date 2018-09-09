@@ -1,32 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import Helmet from 'react-helmet'
-import { AppContainer } from 'react-hot-loader';
-import { injectGlobal } from 'styled-components';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { AppContainer } from 'react-hot-loader'
+import { injectGlobal } from 'styled-components'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-import Routers from './routers';
-import { globalStyles } from './components/ui/theme';
+import Routers from './routers'
+import { globalStyles } from './components/ui/theme'
 
-injectGlobal`${globalStyles}`;
+injectGlobal`${globalStyles}`
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById('root')
 
-const render = Component =>
+const render = (Component) =>
   ReactDOM.render(
     <AppContainer>
       <Router>
         <React.Fragment>
-            <Helmet
+          <Helmet
               titleTemplate="%s • Colorix"
             />
           <Component />
         </React.Fragment>
       </Router>
     </AppContainer>,
-    rootElement
-);
+    rootElement,
+  )
 
-render(Routers);
+render(Routers)
 
-if (module.hot) module.hot.accept('./routers', () => render(Routers));
+if (module.hot) module.hot.accept('./routers', () => render(Routers))
