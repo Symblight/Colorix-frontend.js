@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const {
   LoaderOptionsPlugin,
   optimize: {
@@ -13,7 +14,7 @@ const { config } = require('./common')
 
 module.exports = merge(config, {
   devtool: 'hidden-source-map',
-  mode: "production",
+  mode: 'production',
   output: {
     filename: '[name]-[chunkhash].js',
     chunkFilename: '[name]-[chunkhash]-c.js',

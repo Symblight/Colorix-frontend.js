@@ -1,3 +1,4 @@
-import palette from './palette';
+import { paletteAPI } from './palette'
 
-export default palette; 
+
+export { paletteAPI }
