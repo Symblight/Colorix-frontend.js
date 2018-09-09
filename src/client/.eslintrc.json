@@ -7,6 +7,10 @@
       "jsx-a11y/anchor-is-valid": "off",
       "react/prefer-stateless-function": [false, { "ignorePureComponents": true }],
       "react/no-render-return-value": false,
-      "no-unused-expressions": 0
+      "no-unused-expressions": 0,
+      "linebreak-style": [
+        "error",
+        "windows"
+      ]
     }
   }
