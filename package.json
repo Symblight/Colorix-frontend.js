@@ -13,9 +13,9 @@
     "client": "webpack-dev-server --hot --config=webpack.config.js",
     "client:dev": "npm run dev | npm run client",
     "server:dev": "npm run dev | npm run server",
-    "lint": "eslint src/**/*.js src/**/*.jsx"
+    "lint": "eslint src/**/*.js"
   },
-  "author": "alexey",
+  "author": "Aleksey Tkachenko <symblight@gmail.com>",
   "license": "ISC",
   "repository": {
     "type": "git",

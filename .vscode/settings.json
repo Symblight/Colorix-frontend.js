@@ -1,0 +1,7 @@
+{
+    "git.ignoreLimitWarning": true,
+    "eslint.autoFixOnSave": true,
+    "editor.rulers": [
+      100
+    ],
+}

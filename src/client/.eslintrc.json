@@ -4,6 +4,9 @@
       "browser": true
     },
     "rules": {
-      "jsx-a11y/anchor-is-valid": "off"
+      "jsx-a11y/anchor-is-valid": "off",
+      "react/prefer-stateless-function": [false, { "ignorePureComponents": true }],
+      "react/no-render-return-value": false,
+      "no-unused-expressions": 0
     }
   }

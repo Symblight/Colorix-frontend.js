@@ -1,3 +1,4 @@
-import user from './user';
+import { userAPI } from './user'
 
-export default user; 
+
+export { userAPI }

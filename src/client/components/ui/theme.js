@@ -1,21 +1,21 @@
-const css = String.raw;
+const css = String.raw
 
 export const color = {
-    primary: '#3897f0',
-  
-    backgroundLight: '#fafafa',
-    backgroundWhite: '#fff',
-  
-    text: '#262626',
-    textLight: '#999',
-  
-    border: '#efefef',
-    borderDark: '#e6e6e6',
-};
+  primary: '#3897f0',
+
+  backgroundLight: '#fafafa',
+  backgroundWhite: '#fff',
+
+  text: '#262626',
+  textLight: '#999',
+
+  border: '#efefef',
+  borderDark: '#e6e6e6',
+}
 
 export const font = {
-    formElement: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-};
+  formElement: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+}
 
 export const globalStyles = css`
   html, body {

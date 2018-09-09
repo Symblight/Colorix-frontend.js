@@ -5,27 +5,27 @@ import { AppContainer } from 'react-hot-loader'
 import { injectGlobal } from 'styled-components'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import Routers from './routers'
+import { MainRouter as Routers } from './routers'
 import { globalStyles } from './components/ui/theme'
+
 
 injectGlobal`${globalStyles}`
 
 const rootElement = document.getElementById('root')
 
-const render = (Component) =>
-  ReactDOM.render(
-    <AppContainer>
-      <Router>
-        <React.Fragment>
-          <Helmet
-              titleTemplate="%s • Colorix"
-            />
-          <Component />
-        </React.Fragment>
-      </Router>
-    </AppContainer>,
-    rootElement,
-  )
+const render = (Component) => ReactDOM.render(
+  <AppContainer>
+    <Router>
+      <React.Fragment>
+        <Helmet
+          titleTemplate="%s • Colorix"
+        />
+        <Component />
+      </React.Fragment>
+    </Router>
+  </AppContainer>,
+  rootElement,
+)
 
 render(Routers)
 
