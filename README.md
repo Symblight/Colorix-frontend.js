@@ -3,7 +3,7 @@
 ## Features
 
 - [x] React
-- [x] Webpack 3 (development and production config)
+- [x] Webpack 4 (development and production config)
 - [x] Hot reloaded
 - [x] styled-components
 

@@ -20,12 +20,27 @@ const config = {
   target: 'web',
 
   entry: {
+    vendor: ['react', 'react-dom', 'redux', 'styled-components'],
     index: ['./index'],
   },
 
   output: {
     path: DIST,
     publicPath: '/',
+    filename: '[name].[hash].js',
+  },
+
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'initial',
+          test: 'vendor',
+          name: 'vendor',
+          enforce: true,
+        },
+      },
+    },
   },
 
   resolve: {
