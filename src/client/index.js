@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { AppContainer } from 'react-hot-loader';
 import { injectGlobal } from 'styled-components'
 
-import App from './App';
+import App from './components/App';
 
 injectGlobal`
   *{
@@ -30,4 +30,4 @@ const render = Component =>
 
 render(App);
 
-if (module.hot) module.hot.accept('./App', () => render(App));
+if (module.hot) module.hot.accept('./components/App', () => render(App));

@@ -1,4 +1,3 @@
-const { cpus } = require('os')
 const {
   LoaderOptionsPlugin,
   optimize: {
@@ -28,7 +27,6 @@ module.exports = merge(config, {
     }),
     new ModuleConcatenationPlugin(),
     new UglifyJsPlugin({
-      parallel: cpus().length,
       uglifyOptions: {
         output: { comments: false },
       },
