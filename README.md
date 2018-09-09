@@ -17,7 +17,7 @@ yarn
 
 ## Running in dev mode
 
-#server
+# Server
 
 ```bash
 npm run server:dev
@@ -25,10 +25,19 @@ or
 yarn server:dev
 ```
 
-#client
+# Client
 
 ```bash
 npm run client:dev
 or
 yarn client:dev
+```
+
+# Storybook
+port: 3006
+
+```bash
+npm run npm run storybook
+or
+yarn storybook
 ```

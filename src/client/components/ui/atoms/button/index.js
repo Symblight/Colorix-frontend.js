@@ -12,15 +12,15 @@ const Wrapper = styled.button`
 `
 
 export const Button = ({
-  text,
+  children, ...props
 }) => (
-  <Wrapper>{text}</Wrapper>
+  <Wrapper {...props}>{children}</Wrapper>
 )
 
 Button.propTypes = {
-  text: PropTypes.string,
+  children: PropTypes.node,
 }
 
 Button.defaultProps = {
-  text: 'button',
+  children: null,
 }

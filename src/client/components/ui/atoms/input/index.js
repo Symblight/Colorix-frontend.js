@@ -7,9 +7,9 @@ const Wrapper = styled.input`
 `
 
 export const Input = ({
-  enable,
+  enable, ...props
 }) => (
-  <Wrapper enable />
+  <Wrapper {...props} enable />
 )
 
 Input.propTypes = {
