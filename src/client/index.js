@@ -6,13 +6,9 @@ import { injectGlobal } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Routers from './routers';
+import { globalStyles } from './components/ui/theme';
 
-injectGlobal`
-  *{
-    margin: 0;
-    padding: 0;
-  }
-`;
+injectGlobal`${globalStyles}`;
 
 const rootElement = document.getElementById('root');
 
@@ -24,7 +20,7 @@ const render = Component =>
             <Helmet
               titleTemplate="%s • Colorix"
             />
-          <Routers />
+          <Component />
         </React.Fragment>
       </Router>
     </AppContainer>,

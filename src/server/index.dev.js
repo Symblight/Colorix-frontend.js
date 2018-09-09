@@ -20,7 +20,6 @@ app.get('/', (req, res) => {
     res.send('Hello');
 });
 
-
 // ==== API ====
 app.use('/api/user/', userAPI);
 app.use('/api/palette/', paletteAPI);
