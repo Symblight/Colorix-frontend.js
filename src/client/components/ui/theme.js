@@ -26,6 +26,11 @@ export const globalStyles = css`
     padding: 0;
     background-color: #fafafa;
   }
+
+  *{
+    margin: 0;
+    padding: 0;
+  }
   a {
     text-decoration: none;
     color: #003569;

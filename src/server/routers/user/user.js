@@ -5,6 +5,7 @@ const router = express.Router()
 
 router.get('/u/:id', (req, res) => {
   res.status(200).send()
+  console.log(req.params.id)
 })
 
 router.post('/list', (req, res) => {

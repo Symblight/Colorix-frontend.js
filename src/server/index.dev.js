@@ -2,6 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
 import http from 'http'
+import cors from 'cors'
 
 import config from './config.json'
 import { userAPI } from './routers/user'
@@ -15,14 +16,31 @@ app.disable('x-powered-by')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(morgan('dev'))
+app.use(cors({
+  origin: 'http://localhost:8080',
+  credentials: true,
+}))
+app.all('/*', (req, res, next) => {
+  // CORS headers
+  res.header('Access-Control-Allow-Origin', '*') // restrict it to the required domain
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+  // Set custom headers for CORS
+  res.header('Access-Control-Allow-Headers', 'Content-type,Accept')
+  if (req.method === 'OPTIONS') {
+    res.status(200).end()
+  }
+  else {
+    next()
+  }
+})
 
 app.get('/', (req, res) => {
   res.send('Hello')
 })
 
 // ==== API ====
-app.use('/api/user/', userAPI)
-app.use('/api/palette/', paletteAPI)
+app.use('/api/v1/user/', userAPI)
+app.use('/api/v1/palette/', paletteAPI)
 
 /* eslint-disable no-unused-vars, consistent-return, no-console */
 const server = http.createServer(app).listen(config.port, (err) => {
