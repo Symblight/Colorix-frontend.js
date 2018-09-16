@@ -17,15 +17,7 @@ yarn
 
 ## Running in dev mode
 
-# Server
-
-```bash
-npm run server:dev
-or
-yarn server:dev
-```
-
-# Client
+# Start
 
 ```bash
 npm run client:dev
