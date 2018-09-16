@@ -13,7 +13,7 @@ const IS_DEV = NODE_ENV === 'development'
 const IS_TEST = NODE_ENV === 'test'
 
 const DIST = resolve(__dirname, '..', 'dist')
-const SRC = resolve(__dirname, '..', 'src/client')
+const SRC = resolve(__dirname, '..', 'client')
 
 const config = {
   context: SRC,

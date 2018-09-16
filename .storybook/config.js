@@ -3,7 +3,7 @@ import { configure, addDecorator, setAddon } from '@storybook/react'
 import { withKnobs } from '@storybook/addon-knobs'
 import { setOptions } from '@storybook/addon-options'
 import JsxAddon from 'storybook-addon-jsx'
-import { globalStyles } from '../src/client/components/ui/theme'
+import { globalStyles } from '../client/components/ui/theme'
 
 
 injectGlobal`
@@ -25,7 +25,7 @@ setOptions({
   })
 
   configure(() => {
-    const req = require.context('../src/client/', true, /\.story\.js$/)
+    const req = require.context('../client/', true, /\.story\.js$/)
   
     req.keys().forEach(req)
   }, module)
