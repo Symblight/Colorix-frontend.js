@@ -37,7 +37,7 @@ yarn client:dev
 port: 3006
 
 ```bash
-npm run npm run storybook
+npm run storybook
 or
 yarn storybook
 ```

@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 import { Input } from './index'
 
 
-storiesOf('ui/atoms', module)
-  .addWithJSX('Input', () => (
+storiesOf('ui/Atoms/Input', module)
+  .addWithJSX('default', () => (
     <Input onClick={action('default')} />
   ))

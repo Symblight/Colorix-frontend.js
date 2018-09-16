@@ -6,5 +6,17 @@
     "react-hot-loader/babel",
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-syntax-dynamic-import"
-  ]
+  ],
+  "env" : {
+    "production": {
+      "presets": [
+        ["@babel/preset-env", { "modules": false }]
+       ]
+    },
+    "development": {
+      "presets": [
+        ["@babel/preset-env", { "modules": false }]
+       ]
+    }
+  }
 }

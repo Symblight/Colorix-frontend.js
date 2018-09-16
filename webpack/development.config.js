@@ -5,8 +5,12 @@ const {
 /* eslint-disable import/no-extraneous-dependencies */
 } = require('webpack')
 const merge = require('webpack-merge')
+const WebpackShellPlugin = require('webpack-shell-plugin')
 
 const { config, DIST } = require('./common')
+
+
+const PORT = 3001
 
 
 module.exports = merge(config, {
@@ -29,13 +33,24 @@ module.exports = merge(config, {
       minimize: false,
     }),
     new HotModuleReplacementPlugin(),
+    new WebpackShellPlugin({ onBuildEnd: [`echo client run: http://localhost:${PORT}`] }),
   ],
 
   devServer: {
     contentBase: resolve(__dirname, '..', 'public'),
     hot: true,
+    noInfo: false,
+    inline: false,
+    stats: {
+      colors: true,
+      hash: false,
+      timings: true,
+      chunks: false,
+      chunkModules: false,
+      modules: false,
+    },
     host: 'localhost',
     historyApiFallback: true,
-    port: 3001,
+    port: PORT,
   },
 })

@@ -1,2 +1,5 @@
-export { Button } from './button'
-export { Input } from './input'
+export { Button } from './Button'
+export { Input } from './Input'
+export { Block } from './Block'
+export { Link } from './Link'
+export { Icon } from './Icon'

@@ -1,30 +1,69 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { color } from '../../theme'
+import styled, { css } from 'styled-components'
+import Link from 'react-router-dom/Link'
+import { font, palette } from 'styled-theme'
 
 
-const Wrapper = styled.div`
-    background-color: ${color.primary}
-    border-radius: 2px;
-    padding: 0 0.8rem;
-    color: white;
-    text-transform: uppercase;
-    text-decoration: none !important;
-    white-space: nowrap;
-    cursor: pointer;
+const fontSize = ({ height }) => `${height / 40}rem`
+
+const backgroundColor = ({ transparent, disabled }) => transparent ? 'transparent' : palette(disabled ? 2 : 1)
+
+const foregroundColor = ({ transparent, disabled }) => transparent ? palette(disabled ? 2 : 1) : palette('grayscale', 0, true)
+
+const hoverBackgroundColor = ({ disabled, transparent }) => !disabled && !transparent && palette(0)
+const hoverForegroundColor = ({ disabled, transparent }) => !disabled && transparent && palette(0)
+
+const styles = css`
+  font-family: ${font('primary')};
+  font-size: ${fontSize};
+  cursor: pointer;
+  padding: 5px 15px;
+  border-radius: 0.125em;
+  border: 0.0625em solid transparent;
+  box-sizing: border-box;
+  transition: 250ms ease-out, color 250ms ease-out;
+  background-color: ${backgroundColor};
+  color: ${foregroundColor};
+
+  &:hover {
+    background-color: ${hoverBackgroundColor};
+    color: ${hoverForegroundColor};
+  }
+  &:focus {
+    outline: none
+  }
 `
 
-export const Button = ({
-  children, ...props
-}) => (
-  <Wrapper {...props}>{children}</Wrapper>
-)
+const StyledLink = styled(({
+  palette, ...props
+}) => <Link {...props} />)`${styles}`
+
+const Anchor = styled.a`${styles}`
+const StyledButton = styled.button`${styles}`
+
+export const Button = ({ type, ...props }) => {
+  if (props.to) {
+    return <StyledLink {...props} />
+  } if (props.href) {
+    return <Anchor {...props} />
+  }
+  return <StyledButton {...props} type={type} />
+}
 
 Button.propTypes = {
-  children: PropTypes.node,
+  disabled: PropTypes.bool,
+  palette: PropTypes.string,
+  transparent: PropTypes.bool,
+  reverse: PropTypes.bool,
+  height: PropTypes.number,
+  type: PropTypes.string,
+  to: PropTypes.string,
+  href: PropTypes.string,
 }
 
 Button.defaultProps = {
-  children: null,
+  palette: 'primary',
+  type: 'button',
+  height: 40,
 }
