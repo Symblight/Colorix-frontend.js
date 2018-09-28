@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { size } from 'styled-theme'
 
+import { ParagraphBlock, Button } from 'ui'
+
 
 const Title = styled.h2`
   font-size: 72px;
@@ -16,18 +18,23 @@ const Wrapper = styled.div`
   max-width: ${size('maxWidth')};
   width: 100%;
   margin: auto;
+  text-align:center;
 `
 
 const Layout = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
 `
 
-export const Hero = () => (
+export const Hero = ({ description, title }) => (
   <Wrapper>
     <Title>Colorix</Title>
     <Layout>
-      <div>Info and button create palettes</div>
+      <div>
+        <ParagraphBlock>Colorix - online palettes by Symblight</ParagraphBlock>
+        <Button>Create palette</Button>
+      </div>
       <div>Image</div>
     </Layout>
   </Wrapper>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { Paragraph } from '.'
+import { ParagraphBlock } from '.'
 
 
 storiesOf('ui/Atoms/Paragraph', module)
