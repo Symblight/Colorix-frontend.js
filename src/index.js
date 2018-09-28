@@ -6,7 +6,7 @@ import { injectGlobal } from 'styled-components'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import { MainRouter as Routers } from './routers'
-import { globalStyles } from './components/ui/theme'
+import { globalStyles } from './ui/theme'
 
 
 injectGlobal`${globalStyles}`

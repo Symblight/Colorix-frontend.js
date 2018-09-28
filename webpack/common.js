@@ -1,112 +1,71 @@
-const { resolve } = require('path')
-/* eslint-disable import/no-extraneous-dependencies */
+const { resolve } = require('path');
 const {
   EnvironmentPlugin,
-} = require('webpack')
+  DefinePlugin,
+  HotModuleReplacementPlugin
+} = require('webpack');
 
-const HtmlWebPackPlugin = require('html-webpack-plugin')
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
+const DIST = resolve(__dirname, '..', 'dist');
+const SRC = resolve(__dirname, '..', 'src');
+const { NODE_ENV = 'development' } = process.env;
 
-const { NODE_ENV = 'development' } = process.env
-const IS_PROD = NODE_ENV === 'production'
-const IS_DEV = NODE_ENV === 'development'
-const IS_TEST = NODE_ENV === 'test'
-
-const DIST = resolve(__dirname, '..', 'dist')
-const SRC = resolve(__dirname, '..', 'client')
+const rules = require('./rules');
 
 const config = {
-  context: SRC,
-  target: 'web',
-
-  entry: {
-    vendor: ['react', 'react-dom', 'redux', 'styled-components'],
-    index: ['./index'],
-  },
-
-  output: {
-    path: DIST,
-    publicPath: '/',
-    filename: '[name].[hash].js',
-  },
-
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          chunks: 'initial',
-          test: 'vendor',
-          name: 'vendor',
-          enforce: true,
-        },
-      },
+    context: SRC,
+    target: 'web',
+  
+    entry: {
+      vendor: ['styled-components'],
+      index: ['./index'],
     },
-  },
-
-  resolve: {
-    extensions: ['.mjs', '.js'],
-    modules: [
-      'node_modules',
-      SRC,
-    ],
-  },
-
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
+    output: {
+      filename: '[name].js',
+      path: DIST,
+      pathinfo: true,
+    },
+    optimization: {
+        splitChunks: {
+          cacheGroups: {
+            vendor: {
+              chunks: 'initial',
+              test: 'vendor',
+              name: 'vendor',
+              enforce: true,
+            },
           },
+        },
+    },
+    resolve: {
+        extensions: ['.mjs', '.js'],
+        modules: [
+          'node_modules',
+          SRC,
         ],
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: 'url-loader?limit=100000',
-      },
-      {
-        test: /\.svg$/,
-        use: 'react-svg-loader',
-      },
+    },
+    module: {
+      rules: [
+        ...rules
+      ]
+    },
+    plugins: [ 
+      new HtmlWebPackPlugin({
+        title: 'Colorix',
+        template: 'index.tpl.html',
+      }),
+      new EnvironmentPlugin({
+        NODE_ENV,
+      }),
     ],
-  },
-
-  plugins: [
-    new HtmlWebPackPlugin({
-      title: 'Colorix',
-      template: 'index.tpl.html',
-    }),
-    new EnvironmentPlugin({
-      NODE_ENV,
-    }),
-  ],
-
-  stats: {
-    colors: true,
-    children: false,
-  },
-
-}
+    stats: {
+        colors: true,
+        children: false,
+    },
+};
 
 module.exports = {
-  config,
-
-  IS_DEV,
-  IS_PROD,
-  IS_TEST,
-
-  DIST,
-  SRC,
-}
+    config,
+    DIST
+};  
