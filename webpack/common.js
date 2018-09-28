@@ -1,10 +1,16 @@
 const { resolve } = require('path');
+const {
+  EnvironmentPlugin,
+  DefinePlugin,
+} = require('webpack');
+
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const DIST = resolve(__dirname, '..', 'dist');
 const SRC = resolve(__dirname, '..', 'src');
+const { NODE_ENV = 'development' } = process.env;
 
 const rules = require('./rules');
-const plugins = require('./plugins');
 
 const config = {
     context: SRC,
@@ -32,7 +38,7 @@ const config = {
         },
     },
     resolve: {
-        extensions: ['.mjs', '.js', '.jsx'],
+        extensions: ['.mjs', '.js'],
         modules: [
           'node_modules',
           SRC,
@@ -43,7 +49,15 @@ const config = {
         ...rules
       ]
     },
-    plugins: [ ...plugins],
+    plugins: [ 
+      new HtmlWebPackPlugin({
+        title: 'Colorix',
+        template: 'index.tpl.html',
+      }),
+      new EnvironmentPlugin({
+        NODE_ENV,
+      }),
+    ],
     stats: {
         colors: true,
         children: false,

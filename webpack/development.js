@@ -22,7 +22,6 @@ module.exports = merge(config, {
   performance: {
     hints: false,
   },
-
   plugins: [
     new LoaderOptionsPlugin({
       debug: true,

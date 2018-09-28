@@ -14,7 +14,4 @@ module.exports = [
       new EnvironmentPlugin({
         NODE_ENV,
       }),
-    new DefinePlugin({
-        __CLIENT__: 'true',
-    }),
 ];
