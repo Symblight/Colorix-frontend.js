@@ -1,17 +1,13 @@
-const { resolve } = require('path')
+const { resolve } = require('path');
 const {
   LoaderOptionsPlugin,
   HotModuleReplacementPlugin,
-/* eslint-disable import/no-extraneous-dependencies */
-} = require('webpack')
-const merge = require('webpack-merge')
-const WebpackShellPlugin = require('webpack-shell-plugin')
+} = require('webpack');
+const merge = require('webpack-merge');
 
-const { config, DIST } = require('./common')
+const { config, DIST } = require('./common');
 
-
-const PORT = 3001
-
+const PORT = 3001;
 
 module.exports = merge(config, {
   profile: true,
@@ -33,7 +29,6 @@ module.exports = merge(config, {
       minimize: false,
     }),
     new HotModuleReplacementPlugin(),
-    new WebpackShellPlugin({ onBuildEnd: [`echo client run: http://localhost:${PORT}`] }),
   ],
 
   devServer: {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { PageTemplate, Header, Footer } from 'components/ui'
+import { PageTemplate, Header, Footer } from 'ui'
 
 
 export class MainPage extends Component {
