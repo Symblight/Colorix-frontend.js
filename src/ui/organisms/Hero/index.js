@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   max-width: ${size('maxWidth')};
   width: 100%;
+  margin: auto;
 `
 
 const Layout = styled.div`

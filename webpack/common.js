@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const {
   EnvironmentPlugin,
   DefinePlugin,
+  HotModuleReplacementPlugin
 } = require('webpack');
 
 const HtmlWebPackPlugin = require('html-webpack-plugin');
@@ -21,9 +22,9 @@ const config = {
       index: ['./index'],
     },
     output: {
-        path: DIST,
-        publicPath: '/',
-        filename: '[name].[hash].js',
+      filename: '[name].js',
+      path: DIST,
+      pathinfo: true,
     },
     optimization: {
         splitChunks: {

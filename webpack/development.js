@@ -10,23 +10,12 @@ const { config, DIST } = require('./common');
 const PORT = 3001;
 
 module.exports = merge(config, {
-  profile: true,
   mode: 'development',
-
-  output: {
-    filename: '[name].js',
-    path: DIST,
-    pathinfo: true,
-  },
 
   performance: {
     hints: false,
   },
   plugins: [
-    new LoaderOptionsPlugin({
-      debug: true,
-      minimize: false,
-    }),
     new HotModuleReplacementPlugin(),
   ],
 
@@ -34,7 +23,6 @@ module.exports = merge(config, {
     contentBase: resolve(__dirname, '..', 'public'),
     hot: true,
     noInfo: false,
-    inline: false,
     stats: {
       colors: true,
       hash: false,
@@ -46,5 +34,6 @@ module.exports = merge(config, {
     host: 'localhost',
     historyApiFallback: true,
     port: PORT,
+    watchOptions: { aggregateTimeout: 300, poll: 1000 },
   },
 })

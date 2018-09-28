@@ -12,7 +12,7 @@ export class MainPage extends Component {
         hero={<Hero />}
         footer={<Footer />}
       >
-        <h2>Main pagf3ef</h2>
+        <h2>Main page 2</h2>
         <Link to="/palettes">Palettes</Link>
       </PageTemplate>
     )
