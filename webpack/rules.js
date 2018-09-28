@@ -15,6 +15,11 @@ const babelLoader = {
     },
 };
 
+const storyLoader = {
+    test: /\.story.js$/,
+    use: 'babel-loader' 
+}
+
 const styleLoader = {
     test: /\.css$/,
     use: ['style-loader', 'css-loader'],
@@ -50,6 +55,7 @@ module.exports = [
     {
         oneOf: [
             babelLoader,
+            storyLoader,
             htlmLoader,
             SVGLoader,
             urlLoader,

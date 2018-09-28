@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
-import { Link, Icon } from '../../atoms'
+import { Link, Icon } from 'ui'
 
 
 const Wrapper = styled.div`
