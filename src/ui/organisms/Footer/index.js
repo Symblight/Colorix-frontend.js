@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
-import { Link, Icon } from 'ui'
+import { Link, Icon, Block } from 'ui'
 
 
-const Wrapper = styled.div`
-  background-color: ${palette('grayscale', 1, true)};
+const Wrapper = styled(Block)`
   padding: 2rem;
 `
 
@@ -17,7 +16,7 @@ const Credits = styled.div`
 `
 
 export const Footer = (props) => (
-  <Wrapper {...props}>
+  <Wrapper opaque reverse {...props}>
     <Credits>
         Made with
       <Icon icon="heart" /> by <Link href="https://github.com/diegohaz">Symblight</Link>
