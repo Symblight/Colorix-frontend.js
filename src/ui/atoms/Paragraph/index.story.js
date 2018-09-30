@@ -6,8 +6,15 @@ import { ParagraphBlock } from '.'
 
 storiesOf('ui/Atoms/Paragraph', module)
   .addWithJSX('default', () => (
-    <Paragraph>
-        Hi! Just finished the interior of Zooey's and Gus' house for #santria and I will start with some preparation based on the
+    <ParagraphBlock>
+        Hi! Just finished the interior of
+        Zooeys and Gus house for #santria
+        and I will start with some preparation based on the
         poll for next week! Please enjoy my fondly
-    </Paragraph>
+    </ParagraphBlock>
+  ))
+  .addWithJSX('reverse', () => (
+    <ParagraphBlock reverse>
+    Officia aliqua reprehenderit fugiat occaecat quis non eiusmod.
+    </ParagraphBlock>
   ))

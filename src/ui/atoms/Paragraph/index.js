@@ -1,12 +1,19 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { palette } from 'styled-theme'
 
 
-const Wrapper = styled.p`
+export const ParagraphBlock = styled.p`
     font-size: 30px;
     font-weight: 400;
+    color: ${palette({ grayscale: 0 }, 1)};
 `
 
-export const ParagraphBlock = ({ children }) => (
-  <Wrapper>{children}</Wrapper>
-)
+ParagraphBlock.propTypes = {
+  palette: PropTypes.string,
+  reverse: PropTypes.bool,
+}
+
+ParagraphBlock.defaultProps = {
+  palette: 'grayscale',
+}
