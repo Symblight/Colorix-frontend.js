@@ -18,7 +18,7 @@ const styles = css`
   font-family: ${font('primary')};
   font-size: ${fontSize};
   cursor: pointer;
-  padding: 5px 15px;
+  padding: .608rem 1rem;
   border-radius: 0.125em;
   border: 0.0625em solid transparent;
   box-sizing: border-box;

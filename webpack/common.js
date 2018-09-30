@@ -52,8 +52,7 @@ const config = {
     },
     plugins: [ 
       new HtmlWebPackPlugin({
-        title: 'Colorix',
-        template: 'index.tpl.html',
+        template: 'index.html',
       }),
       new EnvironmentPlugin({
         NODE_ENV,

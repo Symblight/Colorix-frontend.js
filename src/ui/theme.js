@@ -42,19 +42,17 @@ export const font = {
 }
 
 export const globalStyles = css`
-  html, body {
+  body {
     font-family: ${theme.fonts.primary};
-    -webkit-font-smoothing: antialiased;
     margin: 0;
     padding: 0;
     background-color: #fafafa;
     color: #222;
   }
-
-  *{
-    margin: 0;
-    padding: 0;
-  }
+  ::selection {
+    color: #fff; /* Цвет текста */
+    background: ${theme.palette.primary[0]}; /* Цвет фона */
+   }
   a {
     text-decoration: none;
     color: #003569;

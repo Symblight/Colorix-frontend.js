@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Helmet from 'react-helmet'
 import { AppContainer } from 'react-hot-loader'
 import { injectGlobal } from 'styled-components'
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -17,9 +16,6 @@ const render = (Component) => ReactDOM.render(
   <AppContainer>
     <Router>
       <React.Fragment>
-        <Helmet
-          titleTemplate="%s • Colorix"
-        />
         <Component />
       </React.Fragment>
     </Router>
