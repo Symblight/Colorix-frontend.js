@@ -5,7 +5,7 @@ import { font, palette } from 'styled-theme'
 
 export const Label = styled.label`
   font-family: ${font('primary')};
-  color: ${palette('grayscale', 1)};
+  color: ${palette('grayscale', 1, true)};
   font-size: 1rem;
   line-height: 2em;
 `
