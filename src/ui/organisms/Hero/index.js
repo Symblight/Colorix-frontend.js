@@ -49,7 +49,7 @@ export const Hero = ({ description, title }) => (
     <Layout>
       <Content>
         <ParagraphBlockFlex>Colorix - online palettes by Symblight</ParagraphBlockFlex>
-        <Button>Create palette</Button>
+        <Button to="/editor">Create palette</Button>
       </Content>
       <div><Image alt="hero" src={HeroImg} /></div>
     </Layout>
