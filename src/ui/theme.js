@@ -55,10 +55,6 @@ export const globalStyles = css`
    }
   a {
     text-decoration: none;
-    color: #003569;
-  }
-  a:visited, a:focus, a:active {
-    color: #003569;
   }
   * {
     box-sizing: border-box;

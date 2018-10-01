@@ -9,7 +9,7 @@ const styles = css`
   font-family: ${font('primary')};
   text-decoration: none;
   font-weight: 500;
-  color: ${themeColors({ grayscale: 0 }, 1)};
+  color: ${themeColors({ grayscale: 0 }, 2)};
   &:hover {
     text-decoration: underline;
   }

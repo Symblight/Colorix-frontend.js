@@ -17,7 +17,7 @@ const Wrapper = styled(Block)`
 `
 const InnerWrapper = styled.div`
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: ${size('maxWidth')};
   > :not(:first-child) {
