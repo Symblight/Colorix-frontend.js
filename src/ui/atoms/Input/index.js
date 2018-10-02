@@ -16,6 +16,8 @@ const InputWrap = styled.input`
 
 const Wrapper = styled.div`
   background-color: white;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
 `
 
 export const Input = ({

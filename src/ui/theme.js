@@ -46,7 +46,7 @@ export const globalStyles = css`
     font-family: ${theme.fonts.primary};
     margin: 0;
     padding: 0;
-    background-color: #fafafa;
+    background-color: #fff;
     color: #222;
   }
   ::selection {
