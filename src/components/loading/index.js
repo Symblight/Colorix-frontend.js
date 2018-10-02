@@ -16,17 +16,12 @@ const Wrapper = styled.div`
 
 export class Loading extends React.Component {
   render() {
-    const { pastDelay } = this.props
+    return (
+      <Wrapper>
+        <Icon height={80} icon='loading' />
+        <h3>Loading...</h3>
+      </Wrapper>
 
-    if (pastDelay) {
-      return (
-        <Wrapper>
-          <Icon height={80} icon='loading' />
-          <h3>Loading...</h3>
-        </Wrapper>
-
-      )
-    }
-    return <div>lol</div>
+    )
   }
 }
