@@ -9,7 +9,6 @@ import { Icon, Label } from 'ui'
 
 const Wrapper = styled.article`
   text-align: center;
-  height: 100%;
   padding: 1.6rem;
   width: 20%;
   font-size: 18px;

@@ -28,8 +28,8 @@ export const PrimaryNavigation = (props) => (
   <Fragment>
     <Logo />
     <Nav {...props}>
-      <li><Link to="/login" activeClassName="active">login</Link></li>
-      <li><Link to="/signup" activeClassName="active">create account</Link></li>
+      <li><Link to="/login" activeClassName="active">Login</Link></li>
+      <li><Link to="/signup" activeClassName="active">Sign up</Link></li>
     </Nav>
   </Fragment>
 )

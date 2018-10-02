@@ -7,7 +7,9 @@ import { Block } from 'ui'
 
 
 const Wrapper = styled(Block)`
-    
+  width: 100%;
+  max-width: ${size('maxWidth')};
+  margin: auto;
 `
 
 export const Palettes = () => (
