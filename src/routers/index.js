@@ -14,6 +14,18 @@ const LoadablMainPage = Loadable({
   delay: 3000,
 })
 
+const LoadableLoginPage = Loadable({
+  loader: () => import(/* webpackChunkName:'PalettesPage' */ '../components/pages/Login').then(({ LoginPage }) => LoginPage),
+  loading: Loading,
+  delay: 3000,
+})
+
+const LoadableSignUpPage = Loadable({
+  loader: () => import(/* webpackChunkName:'PalettesPage' */ '../components/pages/SignUp').then(({ SignUpPage }) => SignUpPage),
+  loading: Loading,
+  delay: 3000,
+})
+
 const LoadablPalettesPage = Loadable({
   loader: () => import(/* webpackChunkName:'PalettesPage' */ '../components/pages/Palettes').then(({ PalettesPage }) => PalettesPage),
   loading: Loading,
@@ -37,6 +49,8 @@ export class MainRouter extends Component {
       <Switch>
         <Route exact path="/" component={LoadablMainPage} />
         <Route path="/palettes" component={LoadablPalettesPage} />
+        <Route path="/login" component={LoadableLoginPage} />
+        <Route path="/signup" component={LoadableSignUpPage} />
         <Route path="/editor" component={LoadableEditorPage} />
         <Route component={LoadableNoMutch} />
       </Switch>

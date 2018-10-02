@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { size } from 'styled-theme'
 
-import { PrimaryNavigation } from '../../molecules'
-import { Block } from '../../atoms'
+import { Block, PrimaryNavigation, Logo } from 'ui'
 
 
 const Wrapper = styled(Block)`
@@ -25,10 +24,16 @@ const InnerWrapper = styled.div`
   }
 `
 
-export const Header = ({ ...props }) => (
+export const Header = ({ sign, ...props }) => (
   <Wrapper opaque reverse {...props}>
-    <InnerWrapper>
-      <PrimaryNavigation reverse />
-    </InnerWrapper>
+    {
+    !sign
+      ? (
+        <InnerWrapper>
+          <PrimaryNavigation reverse />
+        </InnerWrapper>
+      )
+      : <Logo />
+  }
   </Wrapper>
 )
