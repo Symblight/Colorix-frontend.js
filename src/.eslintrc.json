@@ -12,7 +12,7 @@
       "no-unused-expressions": 0,
       "linebreak-style": [
         "error",
-        "windows"
+        "unix"
       ]
     }
   }

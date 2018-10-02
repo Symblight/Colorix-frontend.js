@@ -31,7 +31,7 @@ const SVGLoader = {
 };
 
 const fileLoader = {
-    exclude: [/\.(png|jpgjs|css|mjs|html|json|ejs)$/],
+    exclude: [/\.(js|css|mjs|html|json|ejs)$/],
     use: [
         {
             loader: 'file-loader',

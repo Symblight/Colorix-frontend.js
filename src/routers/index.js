@@ -3,33 +3,42 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import importedComponent from 'react-imported-component'
+import Loadable from 'react-loadable'
 
-import { MainPage } from '../components/pages/Main'
 import { Loading } from '../components/loading'
 
 
-const AsyncPalettesPage = importedComponent(
-  () => import(/* webpackChunkName:'PalettesPage' */ '../components/pages/Palettes').then(({ PalettesPage }) => PalettesPage),
-  {
-    LoadingComponent: Loading,
-  },
-)
+const LoadablMainPage = Loadable({
+  loader: () => import(/* webpackChunkName:'PalettesPage' */ '../components/pages/Main').then(({ MainPage }) => MainPage),
+  loading: Loading,
+  delay: 3000,
+})
 
-const AsyncNoMutch = importedComponent(
-  () => import(/* webpackChunkName:'NotFoundPage' */ '../components/pages/NotFound').then(({ NotFoundPage }) => NotFoundPage),
-  {
-    LoadingComponent: Loading,
-  },
-)
+const LoadablPalettesPage = Loadable({
+  loader: () => import(/* webpackChunkName:'PalettesPage' */ '../components/pages/Palettes').then(({ PalettesPage }) => PalettesPage),
+  loading: Loading,
+  delay: 300,
+})
+
+const LoadableEditorPage = Loadable({
+  loader: () => import(/* webpackChunkName:'EditorPage' */ '../components/pages/Editor').then(({ EditorPage }) => EditorPage),
+  loading: Loading,
+  delay: 2000,
+})
+
+const LoadableNoMutch = Loadable({
+  loader: () => import(/* webpackChunkName:'NotFoundPage' */ '../components/pages/NotFound').then(({ NotFoundPage }) => NotFoundPage),
+  loading: Loading,
+})
 
 export class MainRouter extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={MainPage} />
-        <Route path="/palettes" component={AsyncPalettesPage} />
-        <Route component={AsyncNoMutch} />
+        <Route exact path="/" component={LoadablMainPage} />
+        <Route path="/palettes" component={LoadablPalettesPage} />
+        <Route path="/editor" component={LoadableEditorPage} />
+        <Route component={LoadableNoMutch} />
       </Switch>
     )
   }

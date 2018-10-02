@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   box-sizing: border-box;
   @media screen and (max-width: 640px) {
     padding-top: 3.25rem;
@@ -21,6 +21,10 @@ const Hero = styled.section``
 
 const Content = styled.section`
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: auto;
   box-sizing: border-box;
 `
 

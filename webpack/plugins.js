@@ -9,7 +9,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 module.exports = [
     new HtmlWebPackPlugin({
         title: 'Colorix',
-        template: 'index.tpl.html',
+        template: 'index.html',
       }),
       new EnvironmentPlugin({
         NODE_ENV,
