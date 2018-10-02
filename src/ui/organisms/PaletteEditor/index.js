@@ -6,7 +6,7 @@ import { PanelEditor, Colour } from 'ui'
 
 const Wrapper = styled.div`
   display: flex;
-  height: 100%;
+  flex: auto;
 `
 
 export class PaletteEditor extends PureComponent {

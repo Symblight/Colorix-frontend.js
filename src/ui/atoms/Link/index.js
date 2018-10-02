@@ -11,7 +11,8 @@ const styles = css`
   font-weight: 500;
   color: ${themeColors({ grayscale: 0 }, 2)};
   &:hover {
-    text-decoration: underline;
+    color: ${themeColors({ primary: 1 }, 2)};
+    transition: .2s;
   }
 `
 
