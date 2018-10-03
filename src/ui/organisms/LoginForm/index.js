@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Input, Label, Button } from 'ui'
+import { FieldForm, Button } from 'ui'
 
 
 const Wrapper = styled.div`
@@ -9,35 +9,23 @@ const Wrapper = styled.div`
     flex-direction: column;
     padding: 1rem;
 
-    h3 {
+    h2 {
         text-align: center;
     }
 `
 
-const FormItems = styled.div`
+const FormItems = styled.form`
     display: flex;
     flex-direction: column;
 `
 
-const Field = styled.div`
-    margin-bottom: 8px;
-`
-
 export const LoginForm = () => (
   <Wrapper>
-    <h3>Login in Colorix</h3>
+    <h2>Login in Colorix</h2>
     <FormItems>
-      <Field>
-        <Label>username</Label>
-        <Input />
-      </Field>
-      <Field>
-        <Label>password</Label>
-        <Input />
-      </Field>
-      <Field>
-        <Button>Sign in</Button>
-      </Field>
+      <FieldForm label="username" error={{ message: 'empty input' }} />
+      <FieldForm label="password" />
+      <Button>Sign in</Button>
     </FormItems>
   </Wrapper>
 )
