@@ -8,6 +8,10 @@ import { Link } from 'ui'
 
 const Wrapper = styled.div`
     font-size: 24px;
+    h3 {
+      margin: 0;
+      padding: 0;
+    }
     a {
       color: ${palette('white', 0)};
       &.active{
@@ -20,7 +24,7 @@ export const Logo = (
   props,
 ) => (
   <Wrapper {...props}>
-    <Link palette="secondary" to="/" activeClassName="active">Colorix</Link>
+    <Link palette="secondary" to="/" activeClassName="active"><h3>Colorix</h3></Link>
   </Wrapper>
 )
 

@@ -1,31 +1,49 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { Fragment, PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
-import { FieldForm, Button } from 'ui'
+import { FieldForm, Form, Button, Link } from 'ui'
 
 
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
+export class LoginForm extends PureComponent {
+  static propTypes = {
+    onSubmit: PropTypes.func,
+    onChange: PropTypes.func,
+    username: PropTypes.string,
+    password: PropTypes.string,
+  }
 
-    h2 {
-        text-align: center;
-    }
-`
+  renderSubmit() {
+    const { onSubmit } = this.props
 
-const FormItems = styled.form`
-    display: flex;
-    flex-direction: column;
-`
+    return (
+      <Button onClick={onSubmit}>Sign in</Button>
+    )
+  }
 
-export const LoginForm = () => (
-  <Wrapper>
-    <h2>Login in Colorix</h2>
-    <FormItems>
-      <FieldForm label="username" error={{ message: 'empty input' }} />
-      <FieldForm label="password" />
-      <Button>Sign in</Button>
-    </FormItems>
-  </Wrapper>
-)
+  renderFields() {
+    const { onChange, password, username } = this.props
+
+    return (
+      <Fragment>
+        <FieldForm onChange={onChange} value={username} name="username" label="username" />
+        <FieldForm onChange={onChange} value={password} name="password" label="password" type="password" />
+      </Fragment>
+    )
+  }
+
+  renderLink = () => (
+    <span>{'Don\'t have an account? '}<Link to="/signup">Join</Link></span>
+  )
+
+  render() {
+    return (
+      <Form
+        title='Login'
+        link={this.renderLink()}
+        submit={this.renderSubmit()}
+        error="Invalid email or username"
+        fields={this.renderFields()}
+      />
+    )
+  }
+}

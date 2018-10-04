@@ -59,7 +59,7 @@ export class FieldForm extends PureComponent {
       super(props)
 
       this.state = {
-        enable: false,
+        enable: !!props.value,
         validation: {
           error: !props.error ? '' : props.error,
           warning: !props.warning ? '' : props.warning,
@@ -67,10 +67,12 @@ export class FieldForm extends PureComponent {
       }
     }
 
-    handleChange = (event) => {
-      const { onChange } = this.props
+    componentWillReceiveProps(nextProps) {
+      this.setState({ enable: !!nextProps.value })
+    }
 
-      this.setState({ enable: !!event.target.value })
+    onChange = (event) => {
+      const { onChange } = this.props
 
       if (onChange) {
         onChange(event, event.target.value)
@@ -78,18 +80,24 @@ export class FieldForm extends PureComponent {
     }
 
     render() {
-      const { label, value, name, ...props } = this.props
+      const { label, value, type, name, className } = this.props
       const { enable, validation } = this.state
 
       return (
-        <Wrapper {...props}>
-          { 
+        <Wrapper className={className}>
+          {
             //   error && error.message
             // ? <ValidMessage>{error.message}</ValidMessage> : null
           }
           <InputWrap>
             <LabelForm enable={enable}>{label || ''}</LabelForm>
-            <InputForm onChange={this.handleChange} enable={enable} value={value} name={name} />
+            <InputForm
+              type={type}
+              onChange={this.onChange}
+              enable={enable}
+              value={value}
+              name={name}
+            />
           </InputWrap>
         </Wrapper>
       )
