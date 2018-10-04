@@ -3,21 +3,20 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { size } from 'styled-theme'
 
-import { PrimaryNavigation } from '../../molecules'
-import { Block } from '../../atoms'
+import { Block, PrimaryNavigation, Logo } from 'ui'
 
 
 const Wrapper = styled(Block)`
   display: flex;
   justify-content: center;
-  padding: 1rem;
+  padding: 1.8rem;
   @media screen and (max-width: 640px) {
     padding: 0.5rem;
   }
 `
 const InnerWrapper = styled.div`
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: ${size('maxWidth')};
   > :not(:first-child) {
@@ -25,10 +24,16 @@ const InnerWrapper = styled.div`
   }
 `
 
-export const Header = ({ ...props }) => (
+export const Header = ({ sign, ...props }) => (
   <Wrapper opaque reverse {...props}>
-    <InnerWrapper>
-      <PrimaryNavigation reverse />
-    </InnerWrapper>
+    {
+    !sign
+      ? (
+        <InnerWrapper>
+          <PrimaryNavigation reverse />
+        </InnerWrapper>
+      )
+      : <Logo />
+  }
   </Wrapper>
 )

@@ -11,5 +11,10 @@ export const Label = styled.label`
 `
 
 Label.propTypes = {
+  palette: PropTypes.string,
   reverse: PropTypes.bool,
+}
+
+Label.defaultProps = {
+  palette: 'grayscale',
 }

@@ -17,10 +17,16 @@ const Header = styled.header`
   width: 100%;
 `
 
-const Hero = styled.section``
+const Hero = styled.section`
+  background-color: #fff;
+`
 
 const Content = styled.section`
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: auto;
   box-sizing: border-box;
 `
 

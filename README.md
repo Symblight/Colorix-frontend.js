@@ -20,9 +20,9 @@ yarn
 # Start
 
 ```bash
-npm run client:dev
+npm run start:dev
 or
-yarn client:dev
+yarn start:dev
 ```
 
 # Storybook

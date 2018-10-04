@@ -27,7 +27,7 @@ theme.palette = {
 theme.reversePalette = reversePalette(theme.palette)
 
 theme.fonts = {
-  primary: 'Helvetica Neue, Helvetica, Roboto, sans-serif',
+  primary: 'Colfax,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;',
   pre: 'Consolas, Liberation Mono, Menlo, Courier, monospace',
   quote: 'Georgia, serif',
 }
@@ -42,24 +42,19 @@ export const font = {
 }
 
 export const globalStyles = css`
-  html, body {
+  body {
     font-family: ${theme.fonts.primary};
-    -webkit-font-smoothing: antialiased;
     margin: 0;
     padding: 0;
-    background-color: #fafafa;
+    background-color: #fff;
+    color: #222;
   }
-
-  *{
-    margin: 0;
-    padding: 0;
-  }
+  ::selection {
+    color: #fff; /* Цвет текста */
+    background: ${theme.palette.primary[0]}; /* Цвет фона */
+   }
   a {
     text-decoration: none;
-    color: #003569;
-  }
-  a:visited, a:focus, a:active {
-    color: #003569;
   }
   * {
     box-sizing: border-box;

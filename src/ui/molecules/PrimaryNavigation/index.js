@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
-import { Link } from '../../atoms'
+import { Link, Logo } from 'ui'
 
 
 const Nav = styled.nav`
@@ -12,22 +12,26 @@ const Nav = styled.nav`
   > :not(:first-child) {
     margin-left: 1rem;
   }
-  a {
-    font-weight: 300;
-    color: ${palette('grayscale', 2)};
-    font-size: 1.25rem;
-    &.active {
-      color: ${palette('grayscale', 0)};
+  li {
+    a {
+      font-weight: 300;
+      color: ${palette('grayscale', 1)};
+      font-size: 1.25rem;
+      &.active {
+        color: ${palette('grayscale', 0)};
+      }
     }
   }
 `
 
 export const PrimaryNavigation = (props) => (
-  <Nav {...props}>
-    <li><Link to="/" exact activeClassName="active">Colorix</Link></li>
-    <li><Link to="/login" activeClassName="active">login</Link></li>
-    <li><Link to="/signup" activeClassName="active">create account</Link></li>
-  </Nav>
+  <Fragment>
+    <Logo />
+    <Nav {...props}>
+      <li><Link to="/login" activeClassName="active">Login</Link></li>
+      <li><Link to="/signup" activeClassName="active">Sign up</Link></li>
+    </Nav>
+  </Fragment>
 )
 
 PrimaryNavigation.propTypes = {

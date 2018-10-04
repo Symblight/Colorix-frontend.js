@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { PageTemplate, Header, Footer, Hero } from 'ui'
+import { PageTemplate, Header, Footer, Hero, Creater, Palettes } from 'ui'
 
 
 export class MainPage extends Component {
@@ -12,8 +12,8 @@ export class MainPage extends Component {
         hero={<Hero />}
         footer={<Footer />}
       >
-        <h2>Main page 2</h2>
-        <Link to="/palettes">Palettes</Link>
+        <Palettes />
+        <Creater />
       </PageTemplate>
     )
   }
