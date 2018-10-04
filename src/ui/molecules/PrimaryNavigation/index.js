@@ -8,15 +8,15 @@ import { Link, Logo } from 'ui'
 
 const Nav = styled.nav`
   display: flex;
+  align-items: center;
   list-style: none;
   > :not(:first-child) {
     margin-left: 1rem;
   }
   li {
     a {
-      font-weight: 300;
-      color: ${palette('grayscale', 1)};
-      font-size: 1.25rem;
+      color: ${palette('grayscale', 1, true)};
+      font-size: 16px;
       &.active {
         color: ${palette('grayscale', 0)};
       }

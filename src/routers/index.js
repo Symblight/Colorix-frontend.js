@@ -20,6 +20,12 @@ const LoadableLoginPage = Loadable({
   delay: 3000,
 })
 
+const LoadablePalettesPage = Loadable({
+  loader: () => import(/* webpackChunkName:'PalettesPage' */ '../components/pages/Palettes').then(({ PalettesPage }) => PalettesPage),
+  loading: Loading,
+  delay: 3000,
+})
+
 const LoadableSignUpPage = Loadable({
   loader: () => import(/* webpackChunkName:'PalettesPage' */ '../components/pages/SignUp').then(({ SignUpPage }) => SignUpPage),
   loading: Loading,
@@ -47,7 +53,7 @@ export class MainRouter extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={LoadablMainPage} />
+        <Route exact path="/" component={LoadablePalettesPage} />
         <Route path="/palettes" component={LoadablPalettesPage} />
         <Route path="/login" component={LoadableLoginPage} />
         <Route path="/signup" component={LoadableSignUpPage} />

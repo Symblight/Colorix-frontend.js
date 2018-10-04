@@ -68,11 +68,13 @@ export class FieldForm extends PureComponent {
     }
 
     componentWillReceiveProps(nextProps) {
-      this.setState({ enable: !!nextProps.value })
+    //  this.setState({ enable: !!nextProps.value })
     }
 
     onChange = (event) => {
       const { onChange } = this.props
+
+      this.setState({ enable: !!event.target.value })
 
       if (onChange) {
         onChange(event, event.target.value)

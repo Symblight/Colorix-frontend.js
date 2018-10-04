@@ -14,6 +14,7 @@ const Wrapper = styled(Block)`
 
 export const Palettes = () => (
   <Wrapper>
-    Palettes
+    <div>palettes</div>
+    <div>menu</div>
   </Wrapper>
 )

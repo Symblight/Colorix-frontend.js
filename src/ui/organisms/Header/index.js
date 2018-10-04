@@ -9,7 +9,9 @@ import { Block, PrimaryNavigation, Logo } from 'ui'
 const Wrapper = styled(Block)`
   display: flex;
   justify-content: center;
-  padding: 1.8rem;
+  align-items: center;
+  height: 54px;
+  border-bottom: 1px solid #e5e5e5;
   @media screen and (max-width: 640px) {
     padding: 0.5rem;
   }
@@ -25,7 +27,7 @@ const InnerWrapper = styled.div`
 `
 
 export const Header = ({ sign, ...props }) => (
-  <Wrapper opaque reverse {...props}>
+  <Wrapper {...props}>
     {
     !sign
       ? (
