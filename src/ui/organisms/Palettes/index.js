@@ -127,11 +127,129 @@ const PALLETES = [
       },
     ],
   },
+  {
+    id: 5,
+    title: 'spring summer2',
+    likes: 2,
+    create_at: 'a week ago',
+    colors: [
+      {
+        id: '0',
+        hash: '#005792',
+      },
+      {
+        id: '1',
+        hash: '#343434',
+      },
+      {
+        id: '2',
+        hash: '#73dbc4',
+      },
+      {
+        id: '3',
+        hash: '#7C4789',
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: 'summer3',
+    likes: 2,
+    create_at: 'a week ago',
+    colors: [
+      {
+        id: '0',
+        hash: '#005792',
+      },
+      {
+        id: '1',
+        hash: '#343434',
+      },
+      {
+        id: '2',
+        hash: '#73dbc4',
+      },
+      {
+        id: '3',
+        hash: '#7C4789',
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: 'spring summer',
+    likes: 2,
+    create_at: 'a week ago',
+    colors: [
+      {
+        id: '0',
+        hash: '#005792',
+      },
+      {
+        id: '1',
+        hash: '#343434',
+      },
+      {
+        id: '2',
+        hash: '#73dbc4',
+      },
+      {
+        id: '3',
+        hash: '#7C4789',
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: 'spring summer',
+    likes: 2,
+    create_at: 'a week ago',
+    colors: [
+      {
+        id: '0',
+        hash: '#005792',
+      },
+      {
+        id: '1',
+        hash: '#343434',
+      },
+      {
+        id: '2',
+        hash: '#73dbc4',
+      },
+      {
+        id: '3',
+        hash: '#7C4789',
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: 'spring summer',
+    likes: 2,
+    create_at: 'a week ago',
+    colors: [
+      {
+        id: '0',
+        hash: '#005792',
+      },
+      {
+        id: '1',
+        hash: '#343434',
+      },
+      {
+        id: '2',
+        hash: '#73dbc4',
+      },
+      {
+        id: '3',
+        hash: '#7C4789',
+      },
+    ],
+  },
 ]
 const Wrapper = styled.main`
-  background-color: #f5f5f5;
-  display: flex;
-  flex: auto;
+  background-color: #fff;
 `
 const Layout = styled.div`
   position: relative;
@@ -141,7 +259,7 @@ const Layout = styled.div`
   margin-right: auto;
   width: 100%;
   max-width: ${size('maxWidth')};
-
+  direction: rtl;
 `
 
 const Content = styled.div`
@@ -149,6 +267,7 @@ const Content = styled.div`
   flex-wrap: wrap;
   transition: 0.6s;
   margin-right: 240px;
+  direction: ltr;
 `
 
 export const Palettes = ({ onSelect }) => (

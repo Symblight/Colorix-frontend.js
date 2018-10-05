@@ -1,7 +1,8 @@
 import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
-import { Icon, Label, ButtonLike } from 'ui'
+import { Label, ButtonLike } from 'ui'
 import {
   Wrapper,
   PaletteWraps,
@@ -9,6 +10,7 @@ import {
   ItemsColor,
   FooterWrap,
   FooterItems,
+  HashCopyAbsolute,
 } from './index.style'
 
 
@@ -38,6 +40,11 @@ export class Palette extends PureComponent {
     }
   }
 
+  handleCopy = (event) => {
+    this.textArea.select()
+    document.execCommand('copy')
+  }
+
   renderColors() {
     const { data } = this.props
     const { selectedId } = this.state
@@ -51,7 +58,9 @@ export class Palette extends PureComponent {
               selectedId !== -1 && selectedId === color.id
                 ? (
                   <ItemsColor id={selectedId} onClick={this.handleSelectColor}>
-                    <span>{color.hash}</span>
+                    <CopyToClipboard text={color.hash}>
+                      <HashCopyAbsolute value={color.hash} />
+                    </CopyToClipboard>
                   </ItemsColor>
                 )
                 : null
@@ -70,7 +79,6 @@ export class Palette extends PureComponent {
   }
 
   renderFooter() {
-    const { selectedId } = this.state
     const { data } = this.props
 
     return (

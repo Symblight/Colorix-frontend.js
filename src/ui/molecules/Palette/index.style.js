@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
+import { HashCopy } from 'ui'
+
 
 const flexBasis = ({ select, id }) => select !== -1 && select !== id ? '0px' : '140px'
 const flexGrow = ({ select, id }) => select !== -1 && select !== id ? '0' : '1'
@@ -11,17 +13,21 @@ export const Wrapper = styled.article`
   width: 234px;
   height: 280px;
   border-radius: 8px;
+  padding: 8px;
   background-color: #fff;
   overflow:hidden;
   margin: 8px;
-  box-shadow: 0 1px 1px 1px rgba(10,16,34,.08);
+  box-shadow: 0px 5px 11px 2px rgba(10, 16, 39, 0.18);
+  transition: 0.6s;
 `
 
 export const PaletteWraps = styled.div`
   position: relative;
   display: flex;
-  flex-direction: row;
-  height: 195px;
+  flex-direction: column;
+  height: 70%;
+  overflow: hidden;
+  border-radius: 4px;
 `
 
 export const ColorWrap = styled.div`
@@ -35,7 +41,6 @@ export const ColorWrap = styled.div`
 
   &:hover {
     cursor: pointer;
-    flex-grow: 1;
     flex-shrink: 1;
     transition: 0.6s;
     width: 100%;
@@ -45,14 +50,14 @@ export const ColorWrap = styled.div`
 export const ItemsColor = styled.div`
   position: absolute;
   top: 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   width: 100%;
   height: 100%;
-  color: ${palette('grayscale', 1, true)};
   padding: 4px;
-  font-weight: 700;
+`
+
+export const HashCopyAbsolute = styled(HashCopy)`
+    position: absolute;
+    bottom: 4px; 
 `
 
 export const FooterWrap = styled.div`
