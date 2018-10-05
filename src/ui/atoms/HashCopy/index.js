@@ -48,7 +48,7 @@ export class HashCopy extends PureComponent {
       const { text } = this.state
 
       return (
-        <Wrapper onClick={this.handleClick} onMouseEnter={this.handleMouseEnter} className={className}>{text}</Wrapper>
+        <Wrapper onClick={this.handleClick} className={className}>{text}</Wrapper>
       )
     }
 }

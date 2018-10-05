@@ -1,8 +1,5 @@
 import { reversePalette } from 'styled-theme/composer'
 
-
-const css = String.raw
-
 const theme = {}
 
 theme.palette = {
@@ -27,33 +24,13 @@ theme.palette = {
 theme.reversePalette = reversePalette(theme.palette)
 
 theme.fonts = {
-  primary: 'Colfax,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;',
+  primary: 'Helvetica Neue, Helvetica, Roboto, sans-serif',
   pre: 'Consolas, Liberation Mono, Menlo, Courier, monospace',
   quote: 'Georgia, serif',
 }
 
-theme.size = {
+theme.sizes = {
   maxWidth: '1260px',
-  minWidth: '100px',
 }
 
-export const globalStyles = css`
-  body {
-    font-family: ${theme.fonts.primary};
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    color: #222;
-  }
-  ::selection {
-    color: #fff; /* Цвет текста */
-    background: ${theme.palette.primary[0]}; /* Цвет фона */
-   }
-  a {
-    text-decoration: none;
-  }
-  * {
-    box-sizing: border-box;
-}
-`
-export { theme }
+export default theme

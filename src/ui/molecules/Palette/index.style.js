@@ -17,7 +17,7 @@ export const Wrapper = styled.article`
   background-color: #fff;
   overflow:hidden;
   margin: 8px;
-  box-shadow: 0px 5px 11px 2px rgba(10, 16, 39, 0.18);
+  box-shadow: 0 10px 40px -10px rgba(0,64,128,.2);
   transition: 0.6s;
 `
 
