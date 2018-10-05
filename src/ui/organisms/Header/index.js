@@ -11,7 +11,6 @@ const Wrapper = styled(Block)`
   justify-content: center;
   align-items: center;
   height: 54px;
-  border-bottom: 1px solid #e5e5e5;
   @media screen and (max-width: 640px) {
     padding: 0.5rem;
   }

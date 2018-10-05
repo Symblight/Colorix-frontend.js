@@ -25,7 +25,7 @@ const InputForm = styled.input`
 `
 const LabelForm = styled(Label)`
     position: absolute;
-    top:  ${ifProp('enable', '-5px', '4px')};
+    top:  ${ifProp('enable', '0px', '12px')};
     left: 12px;
     z-index: 1;
     transition: 100ms;
