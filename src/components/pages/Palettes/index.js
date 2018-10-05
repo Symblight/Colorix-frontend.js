@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
-import { PageTemplate, Header } from 'ui'
+import { PageTemplate, Header, Palettes } from 'ui'
 
 
 export class PalettesPage extends Component {
+  handleSelectPalette = (id) => {
+    console.log(id);
+  }
+
   render() {
     return (
       <PageTemplate
         header={<Header />}
       >
-        <div>ss</div>
+        <Palettes
+          onSelect={this.handleSelectPalette}
+        />
       </PageTemplate>
     )
   }
