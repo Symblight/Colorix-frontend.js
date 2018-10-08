@@ -32,5 +32,5 @@ export const DropdownItem = ({ children, ...props }) => {
   if (props.to) {
     return <StyledLink {...props} />
   }
-  return <Item>{children}</Item>
+  return <Item {...props}>{children}</Item>
 }

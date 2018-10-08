@@ -1,4 +1,5 @@
 import React, { PureComponent, Fragment } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
@@ -7,8 +8,7 @@ import { DropdownItem, Icon } from 'ui'
 
 const WrapperList = styled.ul`
   position: absolute;
-  top: 54px;
-  left: 154px;
+  top: 44px;
   display: flex;
   flex-direction: column;
   background-color: ${palette('white', 0)};
@@ -34,9 +34,29 @@ const WrapItem = styled.div`
   }
 `
 
+const Layout = styled.div`
+  position: relative;
+`
+
 export class Dropdown extends PureComponent {
   state = {
     toggle: false,
+  }
+
+  static propTypes = {
+    title: PropTypes.string,
+    direction: PropTypes.string,
+    data: PropTypes.arrayOf(Object),
+  }
+
+  componentDidMount() {
+    document.addEventListener('click', this.hadnleOutside, false)
+    window.addEventListener('keyup', this.handleKeyUp, false)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.hadnleOutside, false)
+    window.removeEventListener('keyup', this.handleKeyUp, false)
   }
 
   handleToggle = () => {
@@ -47,11 +67,19 @@ export class Dropdown extends PureComponent {
     })
   }
 
+  hadnleOutside = (event) => {
+    if (!this.node.contains(event.target)) {
+      this.setState({
+        toggle: false,
+      })
+    }
+  }
+
   renderList() {
     const { data, direction } = this.props
 
     return (
-      <WrapperList>
+      <WrapperList direction={direction}>
         {
             data.map((item) => (
               <DropdownItem key={item.id}>{item.body}</DropdownItem>
@@ -67,13 +95,18 @@ export class Dropdown extends PureComponent {
 
     return (
       <Fragment>
-        <WrapItem onClick={this.handleToggle}>
-          <span>{title}</span> <Icon icon='arrow-down' height={15} />
-        </WrapItem>
-        {
+        <Layout innerRef={(node) => {
+          this.node = node
+        }}
+        >
+          <WrapItem onClick={this.handleToggle} id={title}>
+            <span>{title}</span> <Icon icon='arrow-down' height={15} />
+          </WrapItem>
+          {
           toggle
             ? this.renderList() : null
-        }
+          }
+        </Layout>
       </Fragment>
     )
   }
