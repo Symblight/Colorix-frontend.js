@@ -52,8 +52,14 @@ export const globalStyles = css`
   a {
     text-decoration: none;
   }
-  * {
-    box-sizing: border-box;
+  
+  ul {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 0;
+  }
 }
 `
 export { theme }

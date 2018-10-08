@@ -1,25 +1,30 @@
 import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { palette } from 'styled-theme'
 
 import { DropdownItem, Icon } from 'ui'
 
 
+const triggedList = keyframes`
+  0% { 
+    transform: scaleY(.5);
+    opacity: 0;
+  }
+`
+
 const WrapperList = styled.ul`
   position: absolute;
   top: 44px;
-  display: flex;
   flex-direction: column;
   background-color: ${palette('white', 0)};
-  list-style: none;
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-  margin-left: 0;
   border-radius: 0 0 6px 6px;
   overflow: hidden;
   border-top: 1px solid ${palette('grayscale', 1, true)};
+  display: ${(props) => props.toggle ? 'flex' : 'none'};
+  animation-duration: .2s;
+  transform-origin: top;
+  animation-name: ${triggedList};
 `
 
 const WrapItem = styled.div`
@@ -51,12 +56,10 @@ export class Dropdown extends PureComponent {
 
   componentDidMount() {
     document.addEventListener('click', this.hadnleOutside, false)
-    window.addEventListener('keyup', this.handleKeyUp, false)
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.hadnleOutside, false)
-    window.removeEventListener('keyup', this.handleKeyUp, false)
   }
 
   handleToggle = () => {
@@ -77,9 +80,10 @@ export class Dropdown extends PureComponent {
 
   renderList() {
     const { data, direction } = this.props
+    const { toggle } = this.state
 
     return (
-      <WrapperList direction={direction}>
+      <WrapperList toggle={toggle} direction={direction}>
         {
             data.map((item) => (
               <DropdownItem key={item.id}>{item.body}</DropdownItem>
@@ -103,8 +107,8 @@ export class Dropdown extends PureComponent {
             <span>{title}</span> <Icon icon='arrow-down' height={15} />
           </WrapItem>
           {
-          toggle
-            ? this.renderList() : null
+            toggle
+              ? this.renderList() : null
           }
         </Layout>
       </Fragment>
