@@ -9,8 +9,8 @@ const flexGrow = ({ select, id }) => select !== -1 && select !== id ? '0' : '1'
 
 const show = keyframes`
   0% { 
-    transform: scaleY(.8);
     opacity: 0;
+    transform: translateY(10px);
   }
 `
 
@@ -26,9 +26,11 @@ export const Wrapper = styled.article`
   margin: 8px;
   box-shadow: 0 10px 40px -10px rgba(0,64,128,.2);
   transition: 0.6s;
+  animation-delay: ${(props) => `${props.id * 50}ms`};
   animation-duration: .4s;
   transform-origin: top;
   animation-name: ${show};
+  animation-fill-mode: backwards;
 `
 
 export const PaletteWraps = styled.div`
@@ -59,15 +61,14 @@ export const ColorWrap = styled.div`
 
 export const ItemsColor = styled.div`
   position: absolute;
-  top: 0px;
   width: 100%;
   height: 100%;
-  padding: 4px;
 `
 
 export const HashCopyAbsolute = styled(HashCopy)`
     position: absolute;
-    bottom: 4px; 
+    bottom: 4px;
+    left: 4px;
 `
 
 export const FooterWrap = styled.div`

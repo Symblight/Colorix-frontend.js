@@ -95,8 +95,10 @@ export class Palette extends PureComponent {
   }
 
   render() {
+    const { id } = this.props
+  
     return (
-      <Wrapper>
+      <Wrapper id={id}>
         {this.renderColors()}
         {this.renderFooter()}
       </Wrapper>

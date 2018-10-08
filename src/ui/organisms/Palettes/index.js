@@ -32,11 +32,12 @@ export const Palettes = ({ onSelect, data }) => (
     <Layout>
       <Content>
         {
-          data.map((colour) => (
+          data.map((colour, index) => (
             <Palette
               data={colour}
               key={colour.id}
               onSelect={onSelect}
+              id={index}
             />
           ))
         }
