@@ -8,7 +8,6 @@ import { DropdownItem, Icon } from 'ui'
 
 const WrapperList = styled.ul`
   position: absolute;
-  top: 44px;
   display: flex;
   flex-direction: column;
   background-color: ${palette('white', 0)};
@@ -26,8 +25,9 @@ const WrapItem = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 8px 4px 8px 4px;
+  padding: 0px 4px 0px 4px;
   cursor: pointer;
+  height: 100%;
 
   span {
     margin-right: 0.5rem;

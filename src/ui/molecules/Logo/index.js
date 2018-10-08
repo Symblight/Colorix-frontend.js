@@ -7,7 +7,9 @@ import { Link } from 'ui'
 
 
 const Wrapper = styled.div`
-    font-size: 24px;
+    margin-right: 12px;
+    margin-bottom: auto;
+    margin-top: auto;
 `
 
 export const Logo = (
