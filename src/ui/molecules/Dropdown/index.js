@@ -72,10 +72,22 @@ export class Dropdown extends PureComponent {
   }
 
   hadnleOutside = (event) => {
-    if (!this.node.contains(event.target)) {
-      this.setState({
-        toggle: false,
-      })
+    if (this.node.contains(event.target)) {
+      return
+    }
+
+    this.setState({
+      toggle: false,
+    })
+  }
+
+  onClick = (event) => {
+    const { onClick } = this.props
+
+    this.handleToggle()
+
+    if (onClick) {
+      onClick(event)
     }
   }
 
@@ -87,7 +99,7 @@ export class Dropdown extends PureComponent {
       <WrapperList toggle={toggle} direction={direction}>
         {
             data.map((item) => (
-              <DropdownItem key={item.id}>{item.body}</DropdownItem>
+              <DropdownItem key={item.id} onClick={this.onClick}>{item.body}</DropdownItem>
             ))
           }
       </WrapperList>

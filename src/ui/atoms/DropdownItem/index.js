@@ -18,8 +18,8 @@ const Wrapper = styled.li`
     }
 `
 
-const Item = ({ children }) => (
-  <Wrapper>
+const Item = ({ children, onClick }) => (
+  <Wrapper onClick={onClick}>
     {children}
   </Wrapper>
 )

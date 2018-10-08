@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { palette } from 'styled-theme'
 
 import { HashCopy } from 'ui'
@@ -6,6 +6,13 @@ import { HashCopy } from 'ui'
 
 const flexBasis = ({ select, id }) => select !== -1 && select !== id ? '0px' : '140px'
 const flexGrow = ({ select, id }) => select !== -1 && select !== id ? '0' : '1'
+
+const show = keyframes`
+  0% { 
+    transform: scaleY(.8);
+    opacity: 0;
+  }
+`
 
 export const Wrapper = styled.article`
   display: flex;
@@ -19,6 +26,9 @@ export const Wrapper = styled.article`
   margin: 8px;
   box-shadow: 0 10px 40px -10px rgba(0,64,128,.2);
   transition: 0.6s;
+  animation-duration: .4s;
+  transform-origin: top;
+  animation-name: ${show};
 `
 
 export const PaletteWraps = styled.div`

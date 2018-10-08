@@ -13,12 +13,16 @@ const Wrapper = styled.div`
     direction: ltr;
 `
 
+const WrapLikes = styled.div`
+  min-height: 200px;
+  margin-bottom: 12px;
+`
+
 export class MenuPalettes extends PureComponent {
   render() {
     return (
       <Wrapper>
-        <div>input search</div>
-        <div>likes</div>
+        <WrapLikes>likes</WrapLikes>
         <Button to='/editor'>Create palettes</Button>
       </Wrapper>
     )

@@ -24,7 +24,6 @@ const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
   transition: 0.6s;
-  margin-right: 240px;
   direction: ltr;
 `
 
