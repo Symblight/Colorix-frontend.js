@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { size } from 'styled-theme'
 
-import { Block, PrimaryNavigation, Logo } from 'ui'
+import { Block, PrimaryNavigation, Logo, Dropdown } from 'ui'
 
+
+const ITEMS = [{ id: 0, body: 'Saved' }, { id: 1, body: 'New' }, { id: 2, body: 'all' }, { id: 3, body: 'about' }]
 
 const Wrapper = styled(Block)`
   display: flex;
@@ -21,7 +23,7 @@ const InnerWrapper = styled.div`
   width: 100%;
   max-width: ${size('maxWidth')};
   > :not(:first-child) {
-    margin-left: 1rem;
+    
   }
 `
 
@@ -31,6 +33,7 @@ export const Header = ({ sign, ...props }) => (
     !sign
       ? (
         <InnerWrapper>
+          <Dropdown data={ITEMS} title='Actions' />
           <PrimaryNavigation reverse />
         </InnerWrapper>
       )
