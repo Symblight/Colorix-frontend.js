@@ -37,7 +37,7 @@ const InputWrap = styled.div`
     position: relative;
     background-color: ${palette('grayscale', 0, true)};
     border: ${ifProp('error', '2px', '1px')} solid ${ifProp('error', palette('danger', 0), palette('grayscale', 1, true))};
-    border-radius: 8px;
+    border-radius: 6px;
 `
 
 const ValidMessage = styled.span`

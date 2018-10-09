@@ -1,44 +1,32 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { palette } from 'styled-theme'
-import { SketchPicker } from 'react-color'
-
-import { Icon, Label } from 'ui'
 
 
-const Wrapper = styled.article`
-  text-align: center;
-  padding: 1.6rem;
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: 700;
-  color: ${palette('grayscale', 1, true)};
-  background-color: ${({ color }) => color};
+const DELAY_MS = 50
 
-  &:hover {
-    cursor: pointer;
+const showContent = keyframes`
+  0% { 
+    opacity: 0;
+    transform: translateY(15px);
   }
 `
 
-const Items = styled.div`
+const Wrapper = styled.div`
+  padding: 1.6rem;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  opacity: 0;
-  transition: all .1s ease-in-out;
-
-  &:hover { 
-    opacity: 1;
-  }
-
-  span {
-    margin-bottom: 24px;
+  flex-grow: 1;
+  color: ${palette('grayscale', 1, true)};
+  background-color: ${({ color }) => color};
+  animation-delay: ${(props) => `${props.id * DELAY_MS}ms`};
+  animation-duration: .4s;
+  transform-origin: top;
+  animation-name: ${showContent};
+  animation-fill-mode: backwards;
+  
+  &:hover {
+    cursor: pointer;
   }
 `
 
@@ -48,18 +36,15 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
-`
-
-const SkecthContainer = styled.div`
-  position: absolute;
+  font-size: 18px;
+  font-weight: 700;
 `
 
 export class Colour extends PureComponent {
   static propTypes = {
     color: PropTypes.string,
-    title: PropTypes.string,
-    onDrag: PropTypes.func,
+    id: PropTypes.number,
+    onClick: PropTypes.func,
   }
 
   static defaultPropTypes = {
@@ -67,44 +52,20 @@ export class Colour extends PureComponent {
     title: 'title',
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      show: false,
-      color: props.color ? props.color : '#fff',
-    }
-  }
+  onClick = (event) => {
+    const { color, onClick, id } = this.props
 
-  handleClick = () => {
-    const { show } = this.state
-
-    this.setState({ show: !show })
-  }
-
-  handleChangeComplete = ({ hex }) => {
-    this.setState({ color: hex })
-  };
-
-  onDrag = () => {
-    const { onDrag } = this.props
-
-    if (onDrag) {
-      onDrag()
+    if (onClick) {
+      onClick(event, { color, id })
     }
   }
 
   render() {
-    const { title } = this.props
-    const { show, color } = this.state
+    const { color, id } = this.props
 
     return (
-      <Wrapper color={color}>
+      <Wrapper color={color} onClick={this.onClick} id={id}>
         <Content>
-          <SkecthContainer>
-            {
-              show ? <SketchPicker onChangeComplete={this.handleChangeComplete} color={color} /> : null
-            }
-          </SkecthContainer>
           <span>{color}</span>
         </Content>
       </Wrapper>

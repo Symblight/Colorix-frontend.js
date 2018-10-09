@@ -3,10 +3,15 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
-import { Link, Logo, Dropdown } from 'ui'
+import { Link, Logo, Dropdown, DropdownItem } from 'ui'
 
 
-const ITEMS = [{ id: 0, body: 'Saved' }, { id: 1, body: 'New' }, { id: 2, body: 'all' }, { id: 3, body: 'about' }]
+const ITEMS = [
+  { id: 0, body: 'Saved' },
+  { id: 1, body: 'New', to: '/editor' },
+  { id: 2, body: 'Palettes', to: '/' },
+  { id: 3, body: 'About', divider: true, to: '/about' },
+]
 
 const Nav = styled.nav`
   display: flex;
@@ -34,7 +39,12 @@ export const PrimaryNavigation = (props) => (
   <Fragment>
     <Row>
       <Logo />
-      <Dropdown data={ITEMS} title='Actions' />
+      <Dropdown data={ITEMS} title='Actions'>
+        <DropdownItem>Saved</DropdownItem>
+        <DropdownItem to='/editor'>New</DropdownItem>
+        <DropdownItem to='/'>Palettes</DropdownItem>
+        <DropdownItem to='/about' divider>About</DropdownItem>
+      </Dropdown>
     </Row>
     <Nav {...props}>
       <li><Link to="/login" activeClassName="active">Login</Link></li>

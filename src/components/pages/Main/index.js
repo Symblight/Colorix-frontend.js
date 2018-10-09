@@ -12,7 +12,6 @@ export class MainPage extends Component {
         hero={<Hero />}
         footer={<Footer />}
       >
-        <Palettes />
         <Creater />
       </PageTemplate>
     )

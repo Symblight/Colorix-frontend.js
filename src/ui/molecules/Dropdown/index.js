@@ -45,14 +45,19 @@ const Layout = styled.div`
 `
 
 export class Dropdown extends PureComponent {
-  state = {
-    toggle: false,
-  }
-
   static propTypes = {
     title: PropTypes.string,
     direction: PropTypes.string,
     data: PropTypes.arrayOf(Object),
+    toggle: PropTypes.bool,
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      toggle: props.toggle ? props.toggle : false,
+    }
   }
 
   componentDidMount() {
@@ -92,16 +97,12 @@ export class Dropdown extends PureComponent {
   }
 
   renderList() {
-    const { data, direction } = this.props
+    const { children, data, direction } = this.props
     const { toggle } = this.state
 
     return (
-      <WrapperList toggle={toggle} direction={direction}>
-        {
-            data.map((item) => (
-              <DropdownItem key={item.id} onClick={this.onClick}>{item.body}</DropdownItem>
-            ))
-          }
+      <WrapperList toggle={toggle} direction={direction} onClick={this.handleToggle}>
+        {children}
       </WrapperList>
     )
   }

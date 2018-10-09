@@ -6,6 +6,7 @@ import { HashCopy } from 'ui'
 
 const flexBasis = ({ select, id }) => select !== -1 && select !== id ? '0px' : '140px'
 const flexGrow = ({ select, id }) => select !== -1 && select !== id ? '0' : '1'
+const DELAY_MS = 50
 
 const show = keyframes`
   0% { 
@@ -17,8 +18,8 @@ const show = keyframes`
 export const Wrapper = styled.article`
   display: flex;
   flex-direction: column;
-  width: 234px;
-  height: 280px;
+  width: 260px;
+  height: 300px;
   border-radius: 8px;
   padding: 8px;
   background-color: #fff;
@@ -26,7 +27,7 @@ export const Wrapper = styled.article`
   margin: 8px;
   box-shadow: 0 10px 40px -10px rgba(0,64,128,.2);
   transition: 0.6s;
-  animation-delay: ${(props) => `${props.id * 50}ms`};
+  animation-delay: ${(props) => `${props.id * DELAY_MS}ms`};
   animation-duration: .4s;
   transform-origin: top;
   animation-name: ${show};

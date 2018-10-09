@@ -6,10 +6,7 @@ import { size, palette } from 'styled-theme'
 import { Palette, MenuPalettes } from 'ui'
 
 
-const Wrapper = styled.main`
-  background-color: #fff;
-`
-const Layout = styled.div`
+const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
@@ -18,6 +15,7 @@ const Layout = styled.div`
   width: 100%;
   max-width: ${size('maxWidth')};
   direction: rtl;
+  background-color: ${palette('grayscale', 0, true)};
 `
 
 const Content = styled.div`
@@ -29,9 +27,8 @@ const Content = styled.div`
 
 export const Palettes = ({ onSelect, data }) => (
   <Wrapper>
-    <Layout>
-      <Content>
-        {
+    <Content>
+      {
           data.map((colour, index) => (
             <Palette
               data={colour}
@@ -40,9 +37,8 @@ export const Palettes = ({ onSelect, data }) => (
               id={index}
             />
           ))
-        }
-      </Content>
-      <MenuPalettes />
-    </Layout>
+      }
+    </Content>
+    <MenuPalettes />
   </Wrapper>
 )
