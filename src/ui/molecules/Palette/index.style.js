@@ -18,8 +18,8 @@ const show = keyframes`
 export const Wrapper = styled.article`
   display: flex;
   flex-direction: column;
-  width: 260px;
-  height: 300px;
+  width: 240px;
+  height: 275px;
   border-radius: 8px;
   padding: 8px;
   background-color: #fff;
@@ -38,7 +38,7 @@ export const PaletteWraps = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 70%;
+  height: 200px;
   overflow: hidden;
   border-radius: 4px;
 `

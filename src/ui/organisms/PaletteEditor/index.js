@@ -30,6 +30,7 @@ const Wrapper = styled.article`
 `
 
 const Layout = styled.div`
+  position: relative;
   margin: 72px auto;
   width: 100%;
   max-width: 500px;
@@ -37,8 +38,9 @@ const Layout = styled.div`
 `
 
 const SkecthContainer = styled.div`
-  position: fixed;
+  position: absolute;
   z-index: 999;
+  right: -240px;
 `
 
 export class PaletteEditor extends PureComponent {
@@ -93,8 +95,10 @@ export class PaletteEditor extends PureComponent {
 
     return (
       <Fragment>
-        <SkecthContainer>
-          {
+        <Layout>
+          <PanelEditor label='Title' />
+          <SkecthContainer>
+            {
               currentColor.color ? (
                 <SketchPicker
                   onChangeComplete={this.handleChangeComplete}
@@ -103,9 +107,7 @@ export class PaletteEditor extends PureComponent {
               )
                 : null
           }
-        </SkecthContainer>
-        <Layout>
-          <PanelEditor label='Title' />
+          </SkecthContainer>
           <Wrapper>
             {
               colors.map((color) => (
