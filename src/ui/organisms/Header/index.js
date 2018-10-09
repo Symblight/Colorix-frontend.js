@@ -21,6 +21,8 @@ const InnerWrapper = styled.div`
   width: 100%;
   font-size: 18px;
   max-width: ${size('maxWidth')};
+  padding-left: 2rem;
+  padding-right: 2rem;
   > :not(:first-child) {
     
   }

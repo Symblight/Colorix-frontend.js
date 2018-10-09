@@ -6,6 +6,7 @@ import {
 import Loadable from 'react-loadable'
 
 import { Loading } from '../components/loading'
+import { PalettePage } from '../components/pages/Palette'
 
 
 const LoadablMainPage = Loadable({
@@ -54,7 +55,8 @@ export class MainRouter extends Component {
     return (
       <Switch>
         <Route exact path="/" component={LoadablePalettesPage} />
-        <Route path="/palettes" component={LoadablPalettesPage} />
+        <Route path="/about" component={LoadablMainPage} />
+        <Route path="/palette/:id" component={PalettePage} />
         <Route path="/login" component={LoadableLoginPage} />
         <Route path="/signup" component={LoadableSignUpPage} />
         <Route path="/editor" component={LoadableEditorPage} />

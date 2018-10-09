@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
+import { palette } from 'styled-theme'
 
 import { Button } from 'ui'
 
@@ -7,10 +8,11 @@ import { Button } from 'ui'
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 8px;
+    top: 70px;
     position: fixed;
-    width: 220px;
+    width: 240px;
     direction: ltr;
+    background-color: ${palette('grayscale', 0, true)};
 `
 
 const WrapLikes = styled.div`

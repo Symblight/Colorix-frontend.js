@@ -7,7 +7,7 @@ import { PageTemplate, Header, SignUpForm } from 'ui'
 const Wrapper = styled.div`
   width: 100%;
   max-width: 400px;
-  margin: auto;
+  margin: 72px auto;
 `
 
 export class SignUpPage extends PureComponent {

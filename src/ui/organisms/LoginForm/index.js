@@ -41,7 +41,6 @@ export class LoginForm extends PureComponent {
         title='Login'
         link={this.renderLink()}
         submit={this.renderSubmit()}
-        error="Invalid email or username"
         fields={this.renderFields()}
       />
     )
