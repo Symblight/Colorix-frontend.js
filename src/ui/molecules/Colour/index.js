@@ -10,7 +10,9 @@ import { Icon, Label } from 'ui'
 const Wrapper = styled.article`
   text-align: center;
   padding: 1.6rem;
-  width: 20%;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
   font-size: 18px;
   font-weight: 700;
   color: ${palette('grayscale', 1, true)};
@@ -98,16 +100,11 @@ export class Colour extends PureComponent {
     return (
       <Wrapper color={color}>
         <Content>
-          <span>{title || null}</span>
           <SkecthContainer>
             {
               show ? <SketchPicker onChangeComplete={this.handleChangeComplete} color={color} /> : null
             }
           </SkecthContainer>
-          <Items>
-            <Icon height={50} onClick={this.handleClick} icon="brush" />
-            <Label>COPY</Label>
-          </Items>
           <span>{color}</span>
         </Content>
       </Wrapper>

@@ -2,7 +2,7 @@ import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
-import { Label, ButtonLike } from 'ui'
+import { Label, ButtonLike, Link } from 'ui'
 import {
   Wrapper,
   PaletteWraps,
@@ -83,7 +83,7 @@ export class Palette extends PureComponent {
 
     return (
       <FooterWrap>
-        <Label>{data.title}</Label>
+        <Label><Link to={`/palette/${data.id}`}>{data.title}</Link></Label>
         <FooterItems>
           <ButtonLike onClick={this.onSelect}>
             <span>{data.likes}</span>

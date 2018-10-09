@@ -36,7 +36,8 @@ const LabelForm = styled(Label)`
 const InputWrap = styled.div`
     position: relative;
     background-color: ${palette('grayscale', 0, true)};
-    border: ${ifProp('error', '2px', '1px')} solid ${ifProp('error', palette('danger', 0), palette('grayscale', 2, true))};
+    border: ${ifProp('error', '2px', '1px')} solid ${ifProp('error', palette('danger', 0), palette('grayscale', 1, true))};
+    border-radius: 8px;
 `
 
 const ValidMessage = styled.span`
@@ -65,10 +66,6 @@ export class FieldForm extends PureComponent {
           warning: !props.warning ? '' : props.warning,
         },
       }
-    }
-
-    componentWillReceiveProps(nextProps) {
-    //  this.setState({ enable: !!nextProps.value })
     }
 
     onChange = (event) => {
