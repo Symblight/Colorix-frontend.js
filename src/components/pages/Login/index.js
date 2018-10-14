@@ -8,7 +8,7 @@ import { PageTemplate, Header, LoginForm } from 'ui'
 const Wrapper = styled.div`
   width: 100%;
   max-width: 400px;
-  margin: auto;
+  margin: 72px auto;
 `
 
 export class LoginPage extends PureComponent {

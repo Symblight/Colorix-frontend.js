@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { size } from 'styled-theme'
 
-import { Block, PrimaryNavigation, Logo } from 'ui'
+import { Block, PrimaryNavigation, Logo, Dropdown } from 'ui'
 
 
 const Wrapper = styled(Block)`
   display: flex;
   justify-content: center;
-  padding: 1.8rem;
+  height: 54px;
   @media screen and (max-width: 640px) {
     padding: 0.5rem;
   }
@@ -17,15 +17,19 @@ const Wrapper = styled(Block)`
 const InnerWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  
   width: 100%;
+  font-size: 18px;
   max-width: ${size('maxWidth')};
+  padding-left: 2rem;
+  padding-right: 2rem;
   > :not(:first-child) {
-    margin-left: 1rem;
+    
   }
 `
 
 export const Header = ({ sign, ...props }) => (
-  <Wrapper opaque reverse {...props}>
+  <Wrapper {...props}>
     {
     !sign
       ? (

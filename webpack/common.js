@@ -18,7 +18,7 @@ const config = {
     target: 'web',
   
     entry: {
-      vendor: ['styled-components'],
+      vendor: ['styled-components', 'styled-theme', 'styled-tools', 'redux' ,'react-color'],
       index: ['./index'],
     },
     output: {

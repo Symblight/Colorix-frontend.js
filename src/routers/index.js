@@ -6,6 +6,7 @@ import {
 import Loadable from 'react-loadable'
 
 import { Loading } from '../components/loading'
+import { PalettePage } from '../components/pages/Palette'
 
 
 const LoadablMainPage = Loadable({
@@ -16,6 +17,12 @@ const LoadablMainPage = Loadable({
 
 const LoadableLoginPage = Loadable({
   loader: () => import(/* webpackChunkName:'PalettesPage' */ '../components/pages/Login').then(({ LoginPage }) => LoginPage),
+  loading: Loading,
+  delay: 3000,
+})
+
+const LoadablePalettesPage = Loadable({
+  loader: () => import(/* webpackChunkName:'PalettesPage' */ '../components/pages/Palettes').then(({ PalettesPage }) => PalettesPage),
   loading: Loading,
   delay: 3000,
 })
@@ -47,8 +54,9 @@ export class MainRouter extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={LoadablMainPage} />
-        <Route path="/palettes" component={LoadablPalettesPage} />
+        <Route exact path="/" component={LoadablePalettesPage} />
+        <Route path="/about" component={LoadablMainPage} />
+        <Route path="/palette/:id" component={PalettePage} />
         <Route path="/login" component={LoadableLoginPage} />
         <Route path="/signup" component={LoadableSignUpPage} />
         <Route path="/editor" component={LoadableEditorPage} />

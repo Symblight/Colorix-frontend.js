@@ -1,2 +1,4 @@
 {
+    "editor.fontFamily": "'Droid Sans Mono', 'monospace', 'Droid Sans Fallback'",
+    "editor.fontSize": 14,
 }

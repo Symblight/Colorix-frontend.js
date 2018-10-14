@@ -1,4 +1,4 @@
-{
+module.exports = {
     "extends": "@atomix/react",
     "env": {
       "browser": true
@@ -10,9 +10,6 @@
       "react/require-default-props": false,
       "react/jsx-one-expression-per-line": false,
       "no-unused-expressions": 0,
-      "linebreak-style": [
-        "error",
-        "unix"
-      ]
+      "linebreak-style": ["error", process.env.NODE_ENV === 'prod' ? "unix" : "windows"]
     }
   }

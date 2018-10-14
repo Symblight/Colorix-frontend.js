@@ -25,7 +25,7 @@ const InputForm = styled.input`
 `
 const LabelForm = styled(Label)`
     position: absolute;
-    top:  ${ifProp('enable', '-5px', '4px')};
+    top:  ${ifProp('enable', '0px', '12px')};
     left: 12px;
     z-index: 1;
     transition: 100ms;
@@ -36,7 +36,8 @@ const LabelForm = styled(Label)`
 const InputWrap = styled.div`
     position: relative;
     background-color: ${palette('grayscale', 0, true)};
-    border: ${ifProp('error', '2px', '1px')} solid ${ifProp('error', palette('danger', 0), palette('grayscale', 2, true))};
+    border: ${ifProp('error', '2px', '1px')} solid ${ifProp('error', palette('danger', 0), palette('grayscale', 1, true))};
+    border-radius: 6px;
 `
 
 const ValidMessage = styled.span`
@@ -67,12 +68,10 @@ export class FieldForm extends PureComponent {
       }
     }
 
-    componentWillReceiveProps(nextProps) {
-      this.setState({ enable: !!nextProps.value })
-    }
-
     onChange = (event) => {
       const { onChange } = this.props
+
+      this.setState({ enable: !!event.target.value })
 
       if (onChange) {
         onChange(event, event.target.value)

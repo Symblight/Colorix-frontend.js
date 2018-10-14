@@ -32,13 +32,9 @@ theme.fonts = {
   quote: 'Georgia, serif',
 }
 
-theme.sizes = {
-  maxWidth: '1100px',
-}
-
-
-export const font = {
-  formElement: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+theme.size = {
+  maxWidth: '1260px',
+  minWidth: '100px',
 }
 
 export const globalStyles = css`
@@ -56,7 +52,14 @@ export const globalStyles = css`
   a {
     text-decoration: none;
   }
-  * {
-    box-sizing: border-box;
+  
+  ul {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 0;
+  }
 }
 `
+export { theme }
